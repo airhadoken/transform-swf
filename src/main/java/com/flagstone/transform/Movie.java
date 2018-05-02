@@ -232,6 +232,7 @@ public final class Movie implements Copyable<Movie> {
     public void decodeFromUrl(final URL url) throws DataFormatException,
             IOException {
         final URLConnection connection = url.openConnection();
+        connection.connect();
         if (connection.getContentLength() < 0) {
             throw new FileNotFoundException(url.getFile());
         }
